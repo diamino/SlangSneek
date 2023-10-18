@@ -13,7 +13,7 @@ import random
 from collections import deque
 
 # Constants
-GRIDSIZE = GRIDWIDTH, GRIDHEIGHT = (20, 20)
+GRIDSIZE = GRIDWIDTH, GRIDHEIGHT = (16, 16)
 SNEEKSIZE = (20, 20)
 DISPLAYSIZE = (GRIDWIDTH * SNEEKSIZE[0], GRIDHEIGHT * SNEEKSIZE[1])
 FGCOLOR = "blue"
@@ -95,7 +95,7 @@ class Snacks:
         self.snacks = []
 
     def initiate_snack(self, snaketail, number=1):
-        for i in range(number):
+        for _ in range(number):
             location = None
             while location is None:
                 location = (random.randrange(GRIDWIDTH), random.randrange(GRIDHEIGHT))
@@ -119,12 +119,8 @@ pygame.display.set_caption("Sneek de Slang")
 clock = pygame.time.Clock()
 
 sneek = Slang(screen, speed=4)
-sneek.draw()
 snacks = Snacks(screen)
 snacks.initiate_snack(sneek.tail)
-snacks.draw()
-
-pygame.display.update()
 
 playing = True
 
